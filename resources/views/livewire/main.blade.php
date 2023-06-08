@@ -4,6 +4,6 @@
             {{ $welcome }}
         </h1>
 
-        <livewire:task/>
+        <livewire:task />
     </section>
 </div>
