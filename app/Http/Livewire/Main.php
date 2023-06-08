@@ -9,9 +9,9 @@ class Main extends Component
 
     public $welcome = "Welcome, these are the tasks";
 
-    protected $listeners = ['taskSaved'];
+    protected $listeners = ['taskMessage'];
 
-    public function taskSaved($message)
+    public function taskMessage($message)
     {
         session()->flash('message', $message);
     }

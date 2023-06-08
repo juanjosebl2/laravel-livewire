@@ -31,6 +31,11 @@ class Task extends Component
         $this->validate(['task.text' => 'max:10']);
     }
 
+    public function edit(TaskModel $task)
+    {
+        $this->task = $task;
+    }
+
     //For search save in BD
     public function save()
     {
@@ -38,7 +43,18 @@ class Task extends Component
         $this->task->save(); //Save in database
         $this->mount(); //For clear search after the press save
         //session()->flash('message','Task saved successfully'); 
-        $this->emitUp('taskSaved', 'Task saved successfully');
+        $this->emitUp('taskMessage', 'Task saved successfully');
+    }
+
+    public function delete($id)
+    {
+        $taskToDelete = TaskModel::find($id);
+
+        if(!is_null($taskToDelete)) {
+            $taskToDelete->delete();
+            $this->emitUp('taskMessage', 'Task deleted succesfully');
+            $this->mount();
+        }
     }
 
     public function render()
