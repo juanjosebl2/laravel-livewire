@@ -1,7 +1,8 @@
 <div>
     <form class="p-4 " wire:submit.prevent="save">
         <div class="mb-4">
-            <input wire:model="task.text" class="p-2 bg-gray-200 w-full" type="text" name="text" placeholder="Tarea...">
+            <input wire:model="task.text" class="p-2 bg-gray-200 w-full" type="text" name="text"
+                placeholder="Tarea...">
             @error('task.text')
                 <div class="mt-1 text-red-600 text-sm">{{ $message }}</div>
             @enderror
@@ -24,14 +25,15 @@
                     <td class="px-4 py-2"><input type="checkbox"></td>
                     <td class="px-4 py-2">{{ $task->text }}</td>
                     <td class="px-4 py-2">
-                        <button type="button" class="bg-indigo-400 px-2 py-1 text-white text-xs rounded">Editar</button>
+                        <button type="button"
+                            class="bg-indigo-400 px-2 py-1 text-white text-xs rounded">Editar</button>
                         <button type="button" class="bg-red-500 px-2 py-1 text-white text-xs rounded">Eliminar</button>
                     </td>
                 </tr>
             @empty
                 <h3>Dont exist</h3>
             @endforelse
-            
+
         </tbody>
     </table>
 </div>
