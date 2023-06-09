@@ -57,6 +57,12 @@ class Task extends Component
         }
     }
 
+    public function done(TaskModel $task)
+    {
+        $task->update(['done' => !$task->done]);
+        $this->mount();
+    }
+
     public function render()
     {
         return view('livewire.task');
